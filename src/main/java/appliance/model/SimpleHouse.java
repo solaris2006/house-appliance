@@ -44,9 +44,19 @@ public class SimpleHouse implements House {
 
     public void switchOnAllLights() {
         //TODO implement
+        for (Appliance appliance : appliances){
+            if (appliance instanceof AbstractLight){
+                ((AbstractLight) appliance).on();
+            }
+        }
     }
 
     public void switchOffAllLights() {
         //TODO implement
+        for (Appliance appliance : appliances){
+            if (appliance instanceof  AbstractLight){
+                ((AbstractLight) appliance).off();
+            }
+        }
     }
 }
