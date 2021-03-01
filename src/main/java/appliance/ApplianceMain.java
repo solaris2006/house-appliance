@@ -24,14 +24,17 @@ public class ApplianceMain {
         SimpleLight light1 = new SimpleLight("Simple light 1");
         SimpleLight light2 = new SimpleLight("Simple light 2");
         VacuumCleaner vacuumCleaner1 = new VacuumCleaner("Vacuum cleaner 1");
+        Refrigerator refrigerator = new Refrigerator("Refrigerator 1");
 
         house.addAppliance(light1);
         house.addAppliance(light2);
         house.addAppliance(vacuumCleaner1);
+        house.addAppliance(refrigerator);
 
         light1.setPowerSource(grid);
         light2.setPowerSource(solar);
         vacuumCleaner1.setPowerSource(grid);
+        refrigerator.setPowerSource(solar);
 
         HouseFrameFactory.create(house);
     }
