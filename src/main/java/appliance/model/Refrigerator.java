@@ -25,7 +25,6 @@ public class Refrigerator extends AbstractPowerConsumer implements Appliance{
     }
 
     public int getCurrentWatts() {
-        System.out.println(this.targetTemperature);
         return (int) (15 * (20 - this.targetTemperature));
     };
 

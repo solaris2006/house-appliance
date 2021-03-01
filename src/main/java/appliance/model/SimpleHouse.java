@@ -76,4 +76,34 @@ public class SimpleHouse implements House {
           }
 
     }
+
+    public void switchOffGrid(){
+        int currentBatteryWatts = getLoadInWatts(findPowerSourceByName("battery"));
+        int currentSolarWatts = getLoadInWatts(findPowerSourceByName("solar"));
+        System.out.println("current battery watts "  + currentSolarWatts);
+        System.out.println("current solar watts" + currentBatteryWatts);
+
+      for (Appliance appliance : appliances){
+          if (appliance instanceof  PowerConsumer){
+              if (((PowerConsumer) appliance).getPowerSource().getName().equalsIgnoreCase("grid")){
+               if (((PowerConsumer) appliance).getCurrentWatts() + currentSolarWatts <
+                       findPowerSourceByName("solar").getMaxPowerWatt()){
+                   ((PowerConsumer) appliance).setPowerSource(findPowerSourceByName("solar"));
+                   currentSolarWatts += getLoadInWatts(findPowerSourceByName("solar"));
+                   System.out.println("current solar watts" + currentSolarWatts);
+               }else if (((PowerConsumer) appliance).getCurrentWatts() + currentBatteryWatts <
+                       findPowerSourceByName("battery").getMaxPowerWatt()){
+                   ((PowerConsumer) appliance).setPowerSource(findPowerSourceByName("battery"));
+                   currentBatteryWatts += getLoadInWatts(findPowerSourceByName("battery"));
+                   System.out.println("current solar watts" + currentBatteryWatts);
+
+
+
+               }
+              }
+          }
+      }
+
+
+    }
 }
