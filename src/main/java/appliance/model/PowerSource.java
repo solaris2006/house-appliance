@@ -32,6 +32,8 @@ public class PowerSource implements NameIdentifiable {
 		return name;
 	}
 
+
+
 	@Override
 	public String toString() {
 		return "PowerSource{" +

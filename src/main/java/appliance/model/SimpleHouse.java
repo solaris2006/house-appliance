@@ -1,9 +1,6 @@
 package appliance.model;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class SimpleHouse implements House {
 
@@ -58,5 +55,25 @@ public class SimpleHouse implements House {
                 ((AbstractLight) appliance).off();
             }
         }
+    }
+
+    public PowerSource findPowerSourceByName(String name){
+        for (PowerSource powerSource : powerSources){
+            if (powerSource.getName().toLowerCase().equals(name)){
+                return powerSource;
+            }
+
+        }
+        return null;
+    }
+
+    public void switchAllToGrid(){
+      for (Appliance appliance: appliances)
+          if (appliance instanceof PowerConsumer) {
+              if (findPowerSourceByName("grid") != null){
+                  ((PowerConsumer) appliance).setPowerSource(findPowerSourceByName("grid"));
+              }
+          }
+
     }
 }
