@@ -36,6 +36,8 @@ public class ApplianceMain {
         vacuumCleaner1.setPowerSource(grid);
         refrigerator.setPowerSource(solar);
 
+
+
         HouseFrameFactory.create(house);
     }
 

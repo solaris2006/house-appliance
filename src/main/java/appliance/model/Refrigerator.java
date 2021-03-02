@@ -4,6 +4,7 @@ public class Refrigerator extends AbstractPowerConsumer implements Appliance{
     private final String name;
     private double targetTemperature ;
 
+
     public Refrigerator(String name){
         this.name = name;
         this.targetTemperature = 8;
@@ -27,6 +28,8 @@ public class Refrigerator extends AbstractPowerConsumer implements Appliance{
     public int getCurrentWatts() {
         return (int) (15 * (20 - this.targetTemperature));
     };
+
+
 
     public String getName() { return  name;}
 
